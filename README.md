@@ -39,3 +39,5 @@ Specify how many items each BPP instance should have
 Specify when Gurobi is allowed to terminate early. (Section 5.4)
 If you wish to solve presampled BPP instances, specify that. If left empty, new BPP instances will be generated.
 Specify the list of solvers for the subproblem you wish to evaluate.
+
+At the end of the file average statistics are printed
