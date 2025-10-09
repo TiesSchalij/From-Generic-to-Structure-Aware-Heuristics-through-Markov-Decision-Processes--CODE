@@ -1,2 +1,41 @@
 # From-Generic-to-Structure-Aware-Heuristics-through-Markov-Decision-Processes--CODE
-This repository contains the code used for my paper title 'From Generic to Structure-Aware Heuristics through Markov Decision Processes'.
+This repository contains the code used for my paper title 'From Generic to Structure-Aware Heuristics through Markov Decision Processes'.\
+All files are Matlab files. There is a dependency on the Gurobi solver, this can be avoided, which will be explained later.
+
+There are 3 Main files:
+  -MainPolicyCreation.m to create improved polices
+  -MainPerformanceTesting.m to evaluate the performance of the policies created by MainPolicyCreation.m
+  -MainColumnGeneration.m to run Column Generation for the Bin Packing Problem with different solvers for the subproblem
+
+The rest of the files are supportive. The instance generators and data used for evaluation are also given.
+All 3 main files should be self-explanatory, but here follows a brief instruction
+
+HOW TO CREATE A POLICY:
+In MainPolicyCreation.m the first section is for user input. 
+First specify T, N, and k that define the TMDP encompassing the Knapsack Problem (Section 5.2)
+Then specify the number columns and rows for the (m,m)-Grid-Approximation. (Section 5.3)
+Then specify what generator to use as D_0 (this can be any of the Pisinger generators) or give a folder location with presampled instances.
+Choose an initial policy. This can be 'greedy', 'k-uniform', or a previously trained policy.
+Choose the number of samples for the Monte Carlo simulation. In case of presampled instances are given, the simulation ends when the specified number of sampled is reached, or when the samples run out, whichever happens first.
+Choose when a state should be classified as undersampled (Section 5.4)
+Finally, specify if and how the obtained policy should be saved.
+
+The Monte Carlo simulation prints progress updates. After Policy Iteration is complete the relative improvement is Printed
+
+HOW TO EVALUATE A POLICY:  
+In MainPerformanceTesting.m the first section is for user input.
+Either specify a generator to use or give an array with presampled Knapsack instances.
+Specify how many instances to test.
+Specify how many items each instance has at most.
+Specify which policies you wish to test.
+Specify wether you want to compare with the exact solution (can be slow)
+
+The file prints summarizing statistics at the end. 
+
+HOW TO SOLVE A BIN PACKING PROBLEM COLUMN GENERATION RELAXATION:
+In MainPolicyCreation.m the first section is for user input. 
+Specify how many BPP instance you wish to solve.
+Specify how many items each BPP instance should have
+Specify when Gurobi is allowed to terminate early. (Section 5.4)
+If you wish to solve presampled BPP instances, specify that. If left empty, new BPP instances will be generated.
+Specify the list of solvers for the subproblem you wish to evaluate.
