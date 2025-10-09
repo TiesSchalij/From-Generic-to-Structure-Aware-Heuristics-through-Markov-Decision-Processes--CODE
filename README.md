@@ -7,7 +7,11 @@ There are 3 Main files:
   -MainPerformanceTesting.m to evaluate the performance of the policies created by MainPolicyCreation.m
   -MainColumnGeneration.m to run Column Generation for the Bin Packing Problem with different solvers for the subproblem
 
-The rest of the files are supportive. The instance generators and data used for evaluation are also given.
+The rest of the files are supportive.
+All policies of which we report results in the paper are given and start with the name 'piTildePrime' followed by the number of columns and rows for the Grid-Approximation, the number of allowed actions, the instance generator used as D_0, and the number of items for the instances. You can easily create your own policies and compare results using the Main functions below. 
+The instance generators and data used for evaluation are also given.
+In case you do not have access to Gurobi, you can replace any line of the form 'instance.GurobiSolve()' to 'instance.BPsolve()' to use Matlab's build-in intlinprog. 
+
 All 3 main files should be self-explanatory, but here follows a brief instruction
 
 HOW TO CREATE A POLICY:
