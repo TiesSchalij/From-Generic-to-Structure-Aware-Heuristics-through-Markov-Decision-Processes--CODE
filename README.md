@@ -1,6 +1,6 @@
 # From-Generic-to-Structure-Aware-Heuristics-through-Markov-Decision-Processes--CODE
 This repository contains the code used for my paper title 'From Generic to Structure-Aware Heuristics through Markov Decision Processes'.\
-All files are Matlab files. There is a dependency on the Gurobi solver, this can be avoided by manually switching to the built-in Matlab solver.
+All files are Matlab files. There is a dependency on the Gurobi solver, this can be avoided, which will be explained later.
 
 There are 3 Main files:
   -MainPolicyCreation.m to create improved polices
@@ -8,9 +8,10 @@ There are 3 Main files:
   -MainColumnGeneration.m to run Column Generation for the Bin Packing Problem with different solvers for the subproblem
 
 The rest of the files are supportive.
-All policies of which we report results in the paper are given and start with the name 'piTildePrime' followed by the number of columns and rows for the Grid-Approximation, the number of allowed actions, the instance generator used as D_0, and the number of items for the instances. You can easily create your own policies and compare results using the Main functions below. 
-The instance generators and data used for evaluation are also given.
-In case you do not have access to Gurobi, you can replace any line of the form 'instance.GurobiSolve()' to 'instance.BPsolve()' to use Matlab's build-in intlinprog. 
+All policies of which we report results in the paper are given in the folder 'policies'. The names start with 'piTildePrime' followed by the number of columns and rows for the Grid-Approximation, the number of allowed actions, the instance generator used as D_0, and the number of items for the instances. You can easily create your own policies and compare results using the Main functions below. 
+The instance generators and data used for evaluation are also given. The BPP instances for section 5.4.3 are given under the name 'BPP instancesArray'. The instances for section 5.4.1 are given by their Pisinger name followed by '-1000instances-200items'.
+The KP instances that arise during the BPP proces, that were used to estimate the approximate TMDP in section 5.4.3 are given in the folder 'KPfromBPP_200items_200lb700ub1000C'.
+In case you do not have access to Gurobi, you can replace any line of the form 'instance.GurobiSolve()' to 'instance.BPsolve()' to use Matlab's built-in intlinprog. 
 
 All 3 main files should be self-explanatory, but here follows a brief instruction
 
