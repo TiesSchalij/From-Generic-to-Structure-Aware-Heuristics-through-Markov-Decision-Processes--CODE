@@ -1,6 +1,6 @@
 # From-Generic-to-Structure-Aware-Heuristics-through-Markov-Decision-Processes--CODE
 This repository contains the code used for my paper title 'From Generic to Structure-Aware Heuristics through Markov Decision Processes'.\
-All files are Matlab files. There is a dependency on the Gurobi solver, this can be avoided, which will be explained later.
+All files are Matlab files. There is a dependency on the Gurobi solver, this can be avoided by manually switching to the built-in Matlab solver.
 
 There are 3 Main files:
   -MainPolicyCreation.m to create improved polices
@@ -40,7 +40,6 @@ HOW TO SOLVE A BIN PACKING PROBLEM COLUMN GENERATION RELAXATION:
 In MainPolicyCreation.m the first section is for user input. 
 Specify how many BPP instance you wish to solve.
 Specify how many items each BPP instance should have
-Specify when Gurobi is allowed to terminate early. (Section 5.4)
 If you wish to solve presampled BPP instances, specify that. If left empty, new BPP instances will be generated.
 Specify the list of solvers for the subproblem you wish to evaluate.
 
