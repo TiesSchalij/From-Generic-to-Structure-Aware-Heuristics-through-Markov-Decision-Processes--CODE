@@ -63,7 +63,7 @@ classdef instance
             [obj.ratio, indices] = sort(obj.ratio, 'descend');
             obj.values = obj.values(indices);
             obj.weights= obj.weights(indices);
-            obj.originalIndex = obj.originalIndex(indices);
+            obj.originalIndex = obj.originalIndex(indices); %=indices
             obj.timePeriod = 1;
             obj.totalVal   = 0;
             obj.binaryKP = options.binaryKP;
@@ -163,7 +163,7 @@ classdef instance
                 params.BestObjStop = objBound;
             end
             if ~isempty(warmStart)
-                model.start = warmStart;
+                model.start = double(ismember(obj.originalIndex, warmStart)); %revert to index in s
             end
             results = gurobi(model, params);
             varargout{1} = results.objval;
